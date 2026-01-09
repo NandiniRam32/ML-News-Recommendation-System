@@ -1,0 +1,48 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /global/homes/z/zchak/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+Traceback (most recent call last):
+  File "/global/cfs/cdirs/m3641/Zini/mlgithub/CS_4641_Project/dbscan.py", line 12, in <module>
+    news_df['Tokenized_Abstract'] = news_df['Abstract'].apply(word_tokenize)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/pandas/core/series.py", line 4924, in apply
+    ).apply()
+      ^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/pandas/core/apply.py", line 1427, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/pandas/core/apply.py", line 1507, in apply_standard
+    mapped = obj._map_values(
+             ^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/pandas/core/base.py", line 921, in _map_values
+    return algorithms.map_array(arr, mapper, na_action=na_action, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/pandas/core/algorithms.py", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "lib.pyx", line 2972, in pandas._libs.lib.map_infer
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 129, in word_tokenize
+    sentences = [text] if preserve_line else sent_tokenize(text, language)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/__init__.py", line 107, in sent_tokenize
+    return tokenizer.tokenize(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1281, in tokenize
+    return list(self.sentences_from_text(text, realign_boundaries))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1341, in sentences_from_text
+    return [text[s:e] for s, e in self.span_tokenize(text, realign_boundaries)]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1329, in span_tokenize
+    for sentence in slices:
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1459, in _realign_boundaries
+    for sentence1, sentence2 in _pair_iter(slices):
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 321, in _pair_iter
+    prev = next(iterator)
+           ^^^^^^^^^^^^^^
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1431, in _slices_from_text
+    for match, context in self._match_potential_end_contexts(text):
+  File "/global/homes/z/zchak/.conda/envs/hdbscan/lib/python3.12/site-packages/nltk/tokenize/punkt.py", line 1395, in _match_potential_end_contexts
+    for match in self._lang_vars.period_context_re().finditer(text):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'float'
